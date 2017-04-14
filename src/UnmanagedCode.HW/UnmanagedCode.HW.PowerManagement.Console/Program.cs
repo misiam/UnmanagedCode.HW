@@ -13,14 +13,23 @@ namespace UnmanagedCode.HW.PowerManagement.Console
         {
             var powerManager = new PowerManager();
 
+
             DateTime lastSleepTime = powerManager.GetLastSleepTime();
             DateTime lastWakeTime = powerManager.GetLastWakeTime();
             var systemBatteryState = powerManager.GetSystemBatteryState();
             var powerInformation = powerManager.GetSystemPowerInformation();
 
 
+            var hibernateFileManager = new HibernateFileManager();
+            hibernateFileManager.ReserveFile();
 
+
+
+
+            System.Console.WriteLine("Press any key to continue");
             System.Console.ReadKey();
+
+
         }
 
     }

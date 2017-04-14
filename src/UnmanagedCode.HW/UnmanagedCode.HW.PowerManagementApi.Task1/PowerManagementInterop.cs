@@ -10,6 +10,8 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
 {
     internal class PowerManagementInterop
     {
+        internal const uint STATUS_SUCCESS = 0;
+
         [DllImport("PowrProf.dll", SetLastError = true)]
         public static extern uint CallNtPowerInformation(
             int informaitonLevel,

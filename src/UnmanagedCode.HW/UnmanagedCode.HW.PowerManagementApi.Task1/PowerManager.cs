@@ -10,8 +10,6 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
 {
     public class PowerManager
     {
-        private const uint STATUS_SUCCESS = 0;
-
         private DateTime GetLastBootUpTime()
         {
             var osClass = new ManagementClass("Win32_OperatingSystem");
@@ -42,7 +40,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
                 outputPtr,
                 outputPtrSize);
 
-            if (retval == STATUS_SUCCESS)
+            if (retval == PowerManagementInterop.STATUS_SUCCESS)
             {
                 var obj = Marshal.PtrToStructure<T>(outputPtr);
                 return obj;
@@ -97,7 +95,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
                 procInfo.Length*Marshal.SizeOf(typeof (ProcessorPowerInformation))
                 );
 
-            if (retval == STATUS_SUCCESS)
+            if (retval == PowerManagementInterop.STATUS_SUCCESS)
             {
                 //foreach (var item in procInfo)
                 //{

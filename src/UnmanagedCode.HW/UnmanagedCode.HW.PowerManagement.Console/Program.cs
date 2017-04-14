@@ -23,7 +23,8 @@ namespace UnmanagedCode.HW.PowerManagement.Console
             var hibernateFileManager = new HibernateFileManager();
             hibernateFileManager.ReserveFile();
 
-
+            var suspendManager = new SuspendManager();
+            //suspendManager.SetSuspendState(false, false, false);
 
 
             System.Console.WriteLine("Press any key to continue");

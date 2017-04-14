@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace UnmanagedCode.HW.PowerManagementApi.Task1
@@ -36,7 +37,8 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
             }
             else
             {
-                throw new ApplicationException("CallNtPowerInformation returned: " + retval);
+                throw new Win32Exception();
+                //throw new ApplicationException("CallNtPowerInformation returned: " + retval + " ");
             }
 
 

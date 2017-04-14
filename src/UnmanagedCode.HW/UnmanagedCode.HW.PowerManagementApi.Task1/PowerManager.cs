@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
@@ -45,8 +46,10 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
                 var obj = Marshal.PtrToStructure<T>(outputPtr);
                 return obj;
             }
-
-            throw new ApplicationException("CallNtPowerInformation returned: " + retval);
+            else
+            {
+                throw new Win32Exception();
+            }
         }
 
         public DateTime GetLastSleepTime()
@@ -104,7 +107,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
             }
             else
             {
-                throw new ApplicationException("CallNtPowerInformation returned: " + retval);
+                throw new Win32Exception();
             }
 
             return procInfo;

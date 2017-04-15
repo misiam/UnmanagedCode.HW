@@ -14,7 +14,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
         {
             uint result = PowerManagementInterop.SetSuspendState(hibernate, forceCritical, disableWakeEvent);
 
-            if (result != 0)
+            if (result == 0)
             {
                 throw new Win32Exception();
             }

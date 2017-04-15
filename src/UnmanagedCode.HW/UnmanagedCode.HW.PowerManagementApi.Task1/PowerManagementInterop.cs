@@ -17,7 +17,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
             int outputBufferSize);
 
 
-        [DllImport("PowrProf.dll")]
+        [DllImport("PowrProf.dll", SetLastError = true)]
         public static extern uint CallNtPowerInformation(
             int informationLevel,
             IntPtr lpInputBuffer,
@@ -40,7 +40,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
         /// The calling process must have the SE_SHUTDOWN_NAME privilege. To enable the SE_SHUTDOWN_NAME privilege, use the AdjustTokenPrivileges function. For more information, see Changing Privileges in a Token.
         /// An application may use SetSuspendState to transition the system from the working state to the standby (sleep), or optionally, hibernate (S4) state. This function is similar to the SetSystemPowerState function.
         /// </remarks>
-        [DllImport("PowrProf.dll")]
+        [DllImport("PowrProf.dll", SetLastError = true)]
         public static extern uint SetSuspendState(
             bool Hibernate,
             bool ForceCritical,

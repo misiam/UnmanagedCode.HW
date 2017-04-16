@@ -30,7 +30,7 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
                 intSize,
                 IntPtr.Zero,
                 0);
-
+            Marshal.FreeHGlobal(intPtr);
             if (retval == PowerManagementInterop.STATUS_SUCCESS)
             {
                 

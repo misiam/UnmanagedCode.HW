@@ -41,13 +41,16 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task1
                 outputPtr,
                 outputPtrSize);
 
+            Marshal.FreeHGlobal(lpInBuffer);
             if (retval == PowerManagementInterop.STATUS_SUCCESS)
             {
                 var obj = Marshal.PtrToStructure<T>(outputPtr);
+                Marshal.FreeHGlobal(outputPtr);
                 return obj;
             }
             else
             {
+                Marshal.FreeHGlobal(outputPtr);
                 throw new Win32Exception();
             }
         }

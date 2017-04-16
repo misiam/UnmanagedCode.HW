@@ -25,7 +25,10 @@ namespace UnmanagedCode.HW.PowerManagementApi.Task3.Tests
             var lastWakeTime = _powerManagerCustom.GetLastWakeTime();
             var lastSleepTime = _powerManagerCustom.GetLastSleepTime();
 
-            Assert.IsTrue(lastSleepTime < lastWakeTime);
+            bool sleep = lastSleepTime < lastWakeTime;
+            bool rebooted = lastSleepTime == lastWakeTime;
+
+            Assert.IsTrue(sleep || rebooted);
         }
 
         [TestMethod]
